@@ -1,7 +1,9 @@
 package leetcode;
 
 public class LeetCode2_2 {
-
+	
+	
+	
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 	        
 //		Input: l1 = [2,4,3], l2 = [5,6,4]
@@ -10,13 +12,13 @@ public class LeetCode2_2 {
 		
         final ListNode newListNode = new ListNode(0);
         
+        ListNode listNode = newListNode;
+        
         int sum, rest, carry = 0;
         
         ListNode nextL1 = l1;
         ListNode nextL2 = l2;
-        ListNode listNode = newListNode;
-        ListNode nextListNode = newListNode.next;
-        ListNode tmpListNode = null;
+        
         do{
             if(nextL1 == null){
                 nextL1 = new ListNode(0);
@@ -37,12 +39,13 @@ public class LeetCode2_2 {
             nextL1 = nextL1.next;
             nextL2 = nextL2.next;
             
-            tmpListNode = listNode;
-            listNode = nextListNode;
-            nextListNode = tmpListNode.next;
+            if(listNode.next == null && (nextL1 != null || nextL2 != null)) {
+            	listNode.next = new ListNode(0);
+            	listNode = listNode.next;
+            }
             
-            
-        }while(nextL1 != null && nextL2 != null);
+        }while(nextL1 != null || nextL2 != null || carry > 0);
+        
         
         return newListNode;
     }
