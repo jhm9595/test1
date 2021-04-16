@@ -39,7 +39,7 @@ public class LeetCode2_2 {
             nextL1 = nextL1.next;
             nextL2 = nextL2.next;
             
-            if(listNode.next == null && (nextL1 != null || nextL2 != null)) {
+            if(listNode.next == null && (nextL1 != null || nextL2 != null || carry > 0)) {
             	listNode.next = new ListNode(0);
             	listNode = listNode.next;
             }
