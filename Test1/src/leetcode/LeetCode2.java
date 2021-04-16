@@ -14,6 +14,9 @@ public class LeetCode2 {
 		if (sum == 0 && l1.next == null && l2.next == null) {
 			return new ListNode(0);
 		}
+		
+		
+		
 		return calculate(l1, l2, 0);
 	}
 
@@ -56,20 +59,4 @@ public class LeetCode2 {
 
 	}
 
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode() {
-		}
-
-		ListNode(int val) {
-			this.val = val;
-		}
-
-		ListNode(int val, ListNode next) {
-			this.val = val;
-			this.next = next;
-		}
-	}
 }
