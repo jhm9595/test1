@@ -15,13 +15,14 @@ public class LeetCode1_2_MergeSort {
 			copy[i] = problem[i];
 		}
 
-		int sortedArr[] = divideIntoHalves(copy);
+		int sortedArr[] = mergeSort(copy);
 		
 		
 		int sum_index = 0;
 		for(int i = 0; i < sortedArr.length; i++) {
 			if(sortedArr[i] >= problem_sum) {
 				sum_index = i;
+				break;
 			}
 		}
 		
@@ -62,7 +63,7 @@ public class LeetCode1_2_MergeSort {
 		
 	}
 
-	private static int[] divideIntoHalves(int[] copy) {
+	private static int[] mergeSort(int[] copy) {
 
 		if (copy.length == 1)
 			return copy;
@@ -92,14 +93,14 @@ public class LeetCode1_2_MergeSort {
 		}
 
 		System.out.println("left");
-		int[] leftResult = divideIntoHalves(left);
+		int[] leftResult = mergeSort(left);
 
 		for (int j = 0; j < leftResult.length; j++) {
 			System.out.println("leftResult" + "[" + j + "]" + " : " + leftResult[j]);
 		}
 
 		System.out.println("right");
-		int[] rightResult = divideIntoHalves(right);
+		int[] rightResult = mergeSort(right);
 
 		for (int j = 0; j < rightResult.length; j++) {
 			System.out.println("rightResult" + "[" + j + "]" + " : " + rightResult[j]);
