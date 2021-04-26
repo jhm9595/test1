@@ -18,6 +18,25 @@ public class BinarySearch {
 		
 		System.out.println("targetIdx : " + targetIdx);
 		
+		targetIdx = _binarySearchJB(mergedArr, 9); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 8); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 7); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 6); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 5); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 4); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 3); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 2); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		targetIdx = _binarySearchJB(mergedArr, 1); // O(n)
+		System.out.println("targetIdx : " + targetIdx);
+		
 	}
 
 	private static int _binarySearch(int[] mergedArr, int target) {
@@ -41,6 +60,24 @@ public class BinarySearch {
 		}
 		
 		return mid;
+	}
+	
+	private static int _binarySearchJB(int[] mergedArr, int target) {
+		
+		int l = 0, r = mergedArr.length-1;
+		
+		while(l < r) {
+			
+			int mid = l + ((r - l) / 2);
+			
+			if(mergedArr[mid] < target) {
+				l = mid + 1;
+			}else {
+				r = mid;
+			}
+		}
+		
+		return l;
 	}
 
 	private static int[] _mergeSort(int[] arr) {
