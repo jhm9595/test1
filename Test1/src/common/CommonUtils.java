@@ -14,6 +14,17 @@ public class CommonUtils {
 		System.out.println(sb.toString());
 	}
 	
+	public static void printArray(String[] arr) {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		for(int i = 0; i < arr.length; i++) {
+			sb.append(arr[i]).append(',');
+		}
+		sb.deleteCharAt(sb.lastIndexOf(","));
+		sb.append(']');
+		System.out.println(sb.toString());
+	}
 
 	public static int[] mergeSort(int[] arr) {
 		
