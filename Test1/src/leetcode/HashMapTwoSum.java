@@ -3,11 +3,12 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/two-sum/submissions/
+ */
+
 public class HashMapTwoSum {
 
-	/**
-	 * https://leetcode.com/problems/two-sum/submissions/
-	 */
 	public static int[] twoSum(int[] nums, int target) {
         
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
