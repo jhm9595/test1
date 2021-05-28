@@ -17,4 +17,5 @@ public class LeetCode28 {
         }
         return -1;
     }
+	
 }
