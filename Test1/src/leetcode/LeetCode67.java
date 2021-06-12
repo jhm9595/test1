@@ -1,5 +1,11 @@
 package leetcode;
 
+/**
+ * https://leetcode.com/problems/add-binary/submissions/
+ * @author minibig
+ *
+ */
+
 public class LeetCode67 {
 
 	public String addBinary(String a, String b) {
