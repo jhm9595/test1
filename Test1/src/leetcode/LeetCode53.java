@@ -9,40 +9,39 @@ package leetcode;
 public class LeetCode53 {
 
 	public int maxSubArray(int[] nums) {
-
-		int maxSum = Integer.MIN_VALUE;
-
-		int[] pattern = new int[nums.length];
-
-		int tmpSum = 0;
-
-		for (int i = 0; i < nums.length; i++) {
-
-			tmpSum = tmpSum + nums[i];
-
-			pattern[i] = tmpSum;
-
-			if (tmpSum > maxSum) {
-				maxSum = tmpSum;
+		
+		int ans = nums[0];
+		
+		for(int i = 1; i < nums.length; i++) {
+			if(nums[i-1] > 0) {
+				nums[i] = nums[i-1] + nums[i];
 			}
+			ans = max(ans, nums[i]);
 		}
+		
+		return ans;
 
-		int minusIdx;
-		for (int i = 1; i < pattern.length; i++) {
-
-			minusIdx = 0;
-			tmpSum = 0;
-			while (minusIdx < i) {
-
-				tmpSum = pattern[i] - pattern[minusIdx];
-
-				if (tmpSum > maxSum) {
-					maxSum = tmpSum;
-				}
-				minusIdx++;
+	}
+	
+	public int minSubArray(int[] nums) {
+		
+		int ans = nums[0];
+		
+		for(int i = 1; i < nums.length; i++) {
+			if(nums[i-1] < 0) {
+				nums[i] = nums[i-1] + nums[i];
 			}
+			ans = min(ans, nums[i]);
 		}
+		return ans;
 
-		return maxSum;
+	}
+
+	private int max(int ans, int i) {
+		return ans > i ? ans : i;
+	}
+	
+	private int min(int ans, int i) {
+		return ans < i ? ans : i;
 	}
 }
