@@ -18,14 +18,6 @@ public class LeetCode108 {
 		
 		int mid = (begin + end) / 2;
 		
-		if(begin >= end && !check[mid]) {
-			return new TreeNode(nums[begin]);
-		}
-		
-		if(mid >= nums.length || check[mid]) {
-			return null;
-		}
-		
 		check[mid] = true;
 		
 		return new TreeNode(nums[mid], setNextNode(nums, begin, mid, check), setNextNode(nums, mid + 1, end, check));
