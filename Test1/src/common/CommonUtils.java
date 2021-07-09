@@ -1,5 +1,7 @@
 package common;
 
+import java.util.List;
+
 public class CommonUtils {
 
 	public static void printArray(int[] arr) {
@@ -12,6 +14,7 @@ public class CommonUtils {
 		sb.deleteCharAt(sb.lastIndexOf(","));
 		sb.append(']');
 		System.out.println(sb.toString());
+		System.out.println("========================");
 	}
 	
 	public static void printArray(String[] arr) {
@@ -24,6 +27,20 @@ public class CommonUtils {
 		sb.deleteCharAt(sb.lastIndexOf(","));
 		sb.append(']');
 		System.out.println(sb.toString());
+		System.out.println("========================");
+	}
+	
+	public static void printArray(List<Integer> list) {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		for(int i = 0; i < list.size(); i++) {
+			sb.append(list.get(i)).append(',');
+		}
+		sb.deleteCharAt(sb.lastIndexOf(","));
+		sb.append(']');
+		System.out.println(sb.toString());
+		System.out.println("========================");
 	}
 
 	public static int[] mergeSort(int[] arr) {

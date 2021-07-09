@@ -1,7 +1,7 @@
 package leetcode;
 
 public class SortAndSearchTwoSum {
-public int[] twoSum(int[] nums, int target) {
+	public int[] twoSum(int[] nums, int target) {
         
         int[] sortedArr = _mergeSort(nums);
         
