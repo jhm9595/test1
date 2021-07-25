@@ -8,22 +8,29 @@ import commonclass.TreeNode;
  *
  */
 public class LeetCode110 {
-
+	
+	private boolean result = true;
+	
 	public boolean isBalanced(TreeNode root) {
-
-		if (root == null)
-			return true;
-
-		return Math.abs(maxHeight(root.left, 0) - maxHeight(root.right, 0)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+		
+		int maxHeight = getMaxHeight(root);
+		
+		System.out.println("maxHeight : " + maxHeight);
+		
+		return result;
 	}
 
-	private int maxHeight(TreeNode node, int height) {
-
-		if (node == null)
-			return height;
+	private int getMaxHeight(TreeNode root) {
 		
-		height++;
-			
-		return Math.max(maxHeight(node.left, height), maxHeight(node.right, height));
+		if(root == null) return 0;
+
+		int l = getMaxHeight(root.left);
+		int r = getMaxHeight(root.right);
+		
+		if(Math.abs(l - r) > 1) {
+			result = false;
+		}
+		
+		return 1 + Math.max(l, r);
 	}
 }
