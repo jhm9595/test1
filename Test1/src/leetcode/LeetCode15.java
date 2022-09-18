@@ -2,7 +2,9 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -16,30 +18,27 @@ public class LeetCode15 {
 
 		Arrays.sort(nums);
 		
+		Set<Integer> zeroSet = new HashSet<Integer>();
+		
 		int pick = 0;
 		int target = 0;
-        int rIdx = nums.length - 1;
 		for(int i = 0; i < nums.length - 2; i++) {
 			pick = nums[i];
 			target = 0 - pick;  // pick + target = 0
 			
 			int sum = 0;
 			int l = i + 1;
-			int r = rIdx;
+			int r = nums.length - 1;
 			while(l < r) {
 				sum = nums[l] + nums[r];
-				if(sum > target) {
+				if(sum > target || zeroSet.contains(r)) {
 					r--;
 				}else if(sum < target) {
 					l++;
 				}else { // sum == target
-					List<Integer> list = new ArrayList<Integer>();
-					list.add(nums[i]);
-					list.add(nums[l]);
-					list.add(nums[r]);
-					resultAllList.add(list);
+					resultAllList.add(new ArrayList<Integer>(Arrays.asList(nums[i], nums[l], nums[r])));
 					if(nums[i] == nums[l] && nums[l] == nums[r]) {
-						rIdx--;
+						zeroSet.add(r);
 					}
 					l++;
 				}
