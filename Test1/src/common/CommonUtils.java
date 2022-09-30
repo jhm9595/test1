@@ -3,10 +3,30 @@ package common;
 import java.util.List;
 
 public class CommonUtils {
+	
+	public static void print2thArray(int[][] arr) {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i = 0; i < arr.length; i++) {
+			sb.append("[");
+			for(int j = 0; j < arr[i].length; j++) {
+				sb.append(arr[i][j]).append(", \t");
+			}
+			sb.deleteCharAt(sb.lastIndexOf(","));
+			sb.append("]\n");
+		}
+		System.out.println(sb.toString());
+	}
+
 
 	public static void printArray(int[] arr) {
 		
-		StringBuilder sb = new StringBuilder();
+		printArray(arr, new StringBuilder());
+	}
+
+	public static void printArray(int[] arr, StringBuilder sb) {
+		
 		sb.append('[');
 		for(int i = 0; i < arr.length; i++) {
 			sb.append(arr[i]).append(',');
@@ -15,6 +35,7 @@ public class CommonUtils {
 		sb.append(']');
 		System.out.println(sb.toString());
 		System.out.println("========================");
+		
 	}
 	
 	public static void printArray(String[] arr) {
@@ -31,6 +52,19 @@ public class CommonUtils {
 	}
 	
 	public static void printArray(List<Integer> list) {
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append('[');
+		for(int i = 0; i < list.size(); i++) {
+			sb.append(list.get(i)).append(',');
+		}
+		sb.deleteCharAt(sb.lastIndexOf(","));
+		sb.append(']');
+		System.out.println(sb.toString());
+		System.out.println("========================");
+	}
+	
+	public static void printStringArray(List<String> list) {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append('[');
