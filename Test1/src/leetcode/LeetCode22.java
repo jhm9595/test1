@@ -1,7 +1,9 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -9,6 +11,8 @@ import java.util.stream.Collectors;
  * @author minibig
  */
 public class LeetCode22 {
+	
+	private Map<Integer, List<String>> map = new HashMap<Integer, List<String>>();
 	
 	public List<String> generateParenthesis(int n) {
 		
@@ -20,10 +24,15 @@ public class LeetCode22 {
 	
 	public List<String> generate(List<String> strList, int n) {
 		
+		if(map.get(n) != null) {
+			return map.get(n);
+		}
+		
 		List<String> list = new ArrayList<String>();
 		
 		if(n == 1) {
 			list.add("()");
+			map.put(1, list);
 			return list;
 		}else {
 			for(int i = 1 ; i < n; i++) {
@@ -38,6 +47,8 @@ public class LeetCode22 {
 			}
 		}
 		
-		return list.stream().distinct().collect(Collectors.toList());
+		map.put(n, list.stream().distinct().collect(Collectors.toList()));
+		
+		return map.get(n);
 	}
 }
