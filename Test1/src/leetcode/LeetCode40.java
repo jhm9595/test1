@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class LeetCode40 {
 	
-	int candidatesSize = 10;
+	int candidatesSize = 100;
 
 	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 		
